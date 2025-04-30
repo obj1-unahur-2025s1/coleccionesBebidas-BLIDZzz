@@ -1,32 +1,40 @@
 import tito.*
 
 describe "test de tito" {
+  method initialize() {
+    tito.consumir(5, wisky)
+  }
+  
+  method consumoTerere() {
+    tito.consumir(5, terere)
+  }
+  
+  test "tito tiene peso 70" {
+    assert.equals(70, tito.peso())
+  }
+  
+  test "la velocidad de tito es " {
+    assert.equals(((0.9 ** 5) * 490) / 70, tito.velocidad())
+  }
+  
+  test "ahora la velocidad es 7 porque consumio terere" {
+    self.consumoTerere()
+    assert.equals(7, tito.velocidad())
+  }
+  
+  test "si consume cianuro la velocidad es cero porque muere" {
+    tito.consumir(5, cianuro)
+    assert.equals(0, tito.velocidad())
+  }
+}
 
-    method initialize() {
-        tito.consumir(5,wisky)
-    }
-
-    method consumoTerere() {
-        tito.consumir(5,terere)
-    }
-
-
-    test "tito tiene peso 70" {
-        assert.equals(70,tito.peso())
-    }
-
-    test "la velocidad de tito es " {
-        assert.equals(0.9**5*490/70,tito.velocidad())
-    }
-
-    test "ahora la velocidad es 7 porque consumio terere" {
-        self.consumoTerere()
-        assert.equals(7,tito.velocidad())
-    }
-
-    test "si consume cianuro la velocidad es cero porque muere" {
-        tito.consumir(5, cianuro)
-        assert.equals(0,tito.velocidad())
-    }
-
+describe "licuadiño" {
+  test "licuadito" {
+    licuado.agregar(banana)
+    assert.equals(4, licuado.ingredientes().size())
+  }
+  
+  test "coctel" {
+    assert.equals(coctelSuave.rendimiento(10), coctelSuave.rendimiento(10))
+  }
 }
